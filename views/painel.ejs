@@ -1,17 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Painel</title>
+<meta charset="UTF-8">
+<title>Painel AI Mail</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{
+margin:0;
+background:#0d0d14;
+font-family:Inter;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+.box{
+width:520px;
+background:#111;
+border-radius:14px;
+padding:30px;
+box-shadow:0 0 40px #000;
+}
+input,textarea{
+width:100%;
+margin:8px 0;
+padding:12px;
+border-radius:8px;
+border:none;
+background:#1b1b2b;
+color:white;
+}
+button{
+width:100%;
+padding:12px;
+margin-top:10px;
+background:linear-gradient(90deg,#6a5cff,#00e0ff);
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+</style>
 </head>
 <body>
-  <h2>Painel do Cliente</h2>
-  <p>Bem-vindo, <%= email %></p>
 
-  <form action="/send-email" method="post">
-    <input name="to" placeholder="Email destino" required><br><br>
-    <input name="subject" placeholder="Assunto" required><br><br>
-    <textarea name="prompt" placeholder="O que a IA deve escrever?" required></textarea><br><br>
-    <button>Enviar com IA</button>
-  </form>
+<div class="box">
+<h2>Bem-vindo, <%= email %></h2>
+
+<form action="/send-email" method="POST">
+<input name="to" placeholder="Email do cliente" required>
+<input name="subject" placeholder="Assunto" required>
+<textarea name="prompt" placeholder="Digite o que a IA deve escrever..." required></textarea>
+<button>Gerar e Enviar Email</button>
+</form>
+</div>
+
 </body>
 </html>

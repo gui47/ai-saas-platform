@@ -1,19 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Login</title>
+<meta charset="UTF-8">
+<title>Login | AI Mail Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;font-family:Inter;}
+body{
+margin:0;
+height:100vh;
+background:linear-gradient(120deg,#5f2cff,#1d2b64);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.card{
+width:380px;
+padding:40px;
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(15px);
+border-radius:16px;
+box-shadow:0 0 60px rgba(0,0,0,.6);
+color:#fff;
+text-align:center;
+}
+h1{margin-bottom:25px;font-weight:400}
+input{
+width:100%;
+padding:14px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+background:#111;
+color:#fff;
+font-size:15px;
+}
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+margin-top:15px;
+background:linear-gradient(90deg,#6a5cff,#00e0ff);
+color:#000;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+button:hover{transform:scale(1.05)}
+.err{
+background:#ff000050;
+padding:10px;
+border-radius:8px;
+margin-bottom:10px;
+}
+</style>
 </head>
 <body>
-  <h2>Login do Sistema</h2>
 
-  <form action="/login" method="post">
-    <input name="email" placeholder="Email" required><br><br>
-    <input name="password" type="password" placeholder="Senha" required><br><br>
-    <button>Entrar</button>
-  </form>
+<div class="card">
+<h1>Login</h1>
 
-  <% if (error) { %>
-    <p style="color:red"><%= error %></p>
-  <% } %>
+<% if(error){ %>
+<div class="err"><%= error %></div>
+<% } %>
+
+<form method="POST" action="/login">
+<input name="email" placeholder="Email" required>
+<input name="password" type="password" placeholder="Senha" required>
+<button>Entrar</button>
+</form>
+</div>
+
 </body>
 </html>
