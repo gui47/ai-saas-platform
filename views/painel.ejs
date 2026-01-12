@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Painel</title>
+</head>
+<body>
+  <h2>Painel do Cliente</h2>
+  <p>Bem-vindo, <%= email %></p>
+
+  <form action="/send-email" method="post">
+    <input name="to" placeholder="Email destino" required><br><br>
+    <input name="subject" placeholder="Assunto" required><br><br>
+    <textarea name="prompt" placeholder="O que a IA deve escrever?" required></textarea><br><br>
+    <button>Enviar com IA</button>
+  </form>
+</body>
+</html>
